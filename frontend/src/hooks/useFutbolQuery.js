@@ -1,11 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
-import { futbolFetch } from "./useFetch";
+import { matches } from "../api/matches";
 
 export function useFutbolQuery() {
-  const matches = useQuery({
-    queryKey: ["matches"],
-    queryFn: futbolFetch,
+  const match = useQuery({
+    queryKey: ["matche", { bigFive: "bigFive" }],
+    queryFn: matches,
   });
 
-  return { matches };
+  return { match };
 }

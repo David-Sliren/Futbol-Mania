@@ -1,22 +1,19 @@
-import { useEffect, useState } from "react";
-
 import ElementoL from "../components/Plantillas/ElementoL";
 import ElementoLP from "../components/Plantillas/ElementoLp";
 import ElementoP from "../components/Plantillas/ElementoP";
 import Table from "../components/Table/Table";
 
 import Events from "../components/Events/Events";
+import { useFutbolQuery } from "../hooks/useFutbolQuery";
 
 function Clasificacion() {
-  // Borrado de los eventos de hoy - Inicia
-  const KEY_A_BORRAR = "eventsToday";
-  const INTERVALO_DE_TIEMPO = 1800000; // 30 minutos
+  const { match } = useFutbolQuery();
 
   return (
     <>
-      <ElementoP nombre={datos[0].league.name}>
+      <ElementoP nombre="hola">
         <ElementoLP nombre="Tabla">
-          <Table>
+          {/* <Table>
             {datos[0].league.standings[0]?.map((item) => {
               return (
                 <tr key={item.rank}>
@@ -32,15 +29,18 @@ function Clasificacion() {
                 </tr>
               );
             })}
-          </Table>
+          </Table> */}
         </ElementoLP>
-        <ElementoLP nombre="Eventos en vivo" column={4}>
-          {eventslive.map((item, index) => {
+        <ElementoLP nombre="Eventos en vivo" column={3}>
+          {match.data?.map((item) => {
             return (
               <Events
-                img1={item.teams.home.logo}
-                text={` ${item.goals.home} - ${item.goals.away}`}
-                img2={item.teams.away.logo}
+                // key={item.competition.id}
+                img1={item.homeTeam.crest}
+                text={`${item.score.fullTime.home} - ${item.score.fullTime.away}`}
+                img2={item.awayTeam.crest}
+                // alt1={item.homeTeam.name}
+                // alt2={item.awayTeam.name}
               />
             );
           })}

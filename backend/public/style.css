@@ -1,0 +1,26 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: black;
+  color: white;
+  padding: 2em;
+  font-family: fantasy;
+}
+
+ul {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+a {
+  color: green;
+  padding-left: 2px;
+  &:hover {
+    color: white;
+  }
+}

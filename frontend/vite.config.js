@@ -6,4 +6,9 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineConfig({
   plugins: [react(), tailwindcss()],
   base: "/futbol-mania/",
+  server: {
+    proxy: {
+      "/api": "http://localhost:3000",
+    },
+  },
 });
