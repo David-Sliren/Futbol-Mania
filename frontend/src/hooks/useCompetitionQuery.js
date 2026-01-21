@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 
-import { type, priority } from "../api/competitions";
+import { type, priority, table } from "../api/competitions";
 
 const time = 12 * 60 * 60 * 1000;
 
@@ -30,4 +30,14 @@ export function useCompetitionQuery() {
   });
 
   return { typeLeague, typeCup, priorityBigfive, prioritySudamerican };
+}
+
+export function useCompetitionTable(id) {
+  const competitionTable = useQuery({
+    queryKey: ["Clasificacion", { competition: id }],
+    queryFn: () => table(id),
+    staleTime: time,
+  });
+
+  return { competitionTable };
 }

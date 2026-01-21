@@ -34,3 +34,15 @@ export async function priority(P) {
 
   return res.json();
 }
+
+// Tabla
+export async function table(T) {
+  const url = `${API_URL}/competitions/${T}/table`;
+  const res = await fetch(url);
+
+  if (!res.ok) {
+    throw new Error(`Error: ${(res.status, res.statusText)}`);
+  }
+
+  return res.json();
+}
