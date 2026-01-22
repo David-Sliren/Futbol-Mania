@@ -17,11 +17,10 @@ function Home() {
             return (
               <ElementoL
                 key={item.id}
+                id={item.id}
                 name={item.name}
                 logo={item.logo}
-                // logica={datosDeBotones}
-                dependencia={item.id}
-                isActive={false}
+                isActive={true}
               />
             );
           })}
@@ -32,11 +31,10 @@ function Home() {
             return (
               <ElementoL
                 key={item.id}
+                id={item.id}
                 name={item.name}
                 logo={item.logo}
-                // logica={datosDeBotones}
-                dependencia={item.id}
-                isActive={false}
+                isActive={true}
               />
             );
           })}
@@ -47,11 +45,10 @@ function Home() {
             return (
               <ElementoL
                 key={item.id}
+                id={item.id}
                 name={item.name}
                 logo={item.logo}
-                // logica={datosDeBotones}
-                dependencia={item.id}
-                isActive={false}
+                isActive={true}
               />
             );
           })}

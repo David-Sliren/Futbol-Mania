@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 
 import { matches, matchesCompetitions } from "../api/matches";
+import { useGetBotonData } from "../context/boton_data/useGetBotonData";
 
 const time = 2 * 60 * 1000;
 
@@ -14,10 +15,11 @@ export function useMatches() {
   return { eventsMathes };
 }
 
-export function useCompetitionMatches(id) {
+export function useCompetitionMatches() {
+  const { botonData } = useGetBotonData();
   const competitionsMatches = useQuery({
-    queryKey: ["Clasificacion", { competitionsMatches: id }],
-    queryFn: () => matchesCompetitions(id),
+    queryKey: ["Clasificacion", { competitionsMatches: botonData }],
+    queryFn: () => matchesCompetitions(botonData),
     staleTime: time,
   });
 

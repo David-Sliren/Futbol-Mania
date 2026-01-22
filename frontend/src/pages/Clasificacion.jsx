@@ -1,35 +1,37 @@
 import ElementoL from "../components/Plantillas/ElementoL";
 import ElementoLP from "../components/Plantillas/ElementoLp";
 import ElementoP from "../components/Plantillas/ElementoP";
-import Table from "../components/Table/Table";
+import Table from "../components/Plantillas/Table";
 
 import Events from "../components/Events/Events";
-// import { useFutbolQuery } from "../hooks/useFutbolQuery";
+import { useCompetitionTable } from "../hooks/useCompetitionQuery";
+import { useCompetitionMatches } from "../hooks/useMatchesQuery";
 
 function Clasificacion() {
-  // const { match } = useFutbolQuery();
+  const { competitionsMatches } = useCompetitionMatches();
+  const { competitionTable } = useCompetitionTable();
 
   return (
     <>
-      <ElementoP nombre="hola">
+      <ElementoP nombre="Clasificacion">
         <ElementoLP nombre="Tabla">
-          {/* <Table>
-            {datos[0].league.standings[0]?.map((item) => {
+          <Table>
+            {competitionTable.data?.map((item, i) => {
               return (
-                <tr key={item.rank}>
+                <tr key={i}>
                   <td className="font-semibold">{item.team.name}</td>
-                  <td>{item.all.played}</td>
-                  <td>{item.all.win}</td>
-                  <td>{item.all.draw}</td>
-                  <td>{item.all.lose}</td>
-                  <td>{item.all.goals.for}</td>
-                  <td>{item.all.goals.against}</td>
-                  <td>{item.all.goals.for - item.all.goals.against}</td>
+                  <td>{item.playedGames}</td>
+                  <td>{item.won}</td>
+                  <td>{item.draw}</td>
+                  <td>{item.lost}</td>
+                  <td>{40}</td>
+                  <td>{20}</td>
+                  <td>{12}</td>
                   <td className="font-semibold">{item.points}</td>
                 </tr>
               );
             })}
-          </Table> */}
+          </Table>
         </ElementoLP>
         <ElementoLP nombre="Eventos en vivo" column={3}>
           {/* {match.data?.map((item) => {
