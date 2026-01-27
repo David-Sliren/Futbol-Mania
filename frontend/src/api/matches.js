@@ -12,7 +12,7 @@ export async function matches() {
 }
 
 export async function matchesCompetitions(id) {
-  const url = `${API_URL}/matches?competition=${id}`;
+  const url = `${API_URL}/matches?competitions=${id}`;
   const res = await fetch(url);
 
   if (!res.ok) {
