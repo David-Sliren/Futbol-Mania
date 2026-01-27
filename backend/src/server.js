@@ -102,8 +102,7 @@ app.get("/api/matches", async (req, res) => {
   try {
     if (competitions) {
       const data = await matchesCompetition(competitions);
-      if (data.length === 0)
-        return res.json([{ warnin: "There are no games in play" }]);
+      if (data.length === 0) return res.json([]);
       res.json(filterMatch(data));
     }
 
