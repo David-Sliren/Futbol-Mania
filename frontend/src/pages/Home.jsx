@@ -11,6 +11,10 @@ function Home() {
     useCompetitionQuery();
   return (
     <div className="container w-full min-h-dvh">
+      <div id="stars"></div>
+      <div id="stars2"></div>
+      <div id="stars3"></div>
+      <div></div>
       <ElementoP title="FUTBOL MANIA">
         <ElementoLP nombre="Cinco Grandes">
           {priorityBigfive.data?.map((item) => {

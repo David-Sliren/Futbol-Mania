@@ -16,6 +16,10 @@ function Clasificacion() {
   return (
     <>
       <div className="container">
+        <div id="stars"></div>
+        <div id="stars2"></div>
+        <div id="stars3"></div>
+        <div></div>
         <header className="bg-white/10 w-full h-fit p-2 backdrop-blur-md sticky top-0 z-999">
           <Link to="/">
             <Button />
