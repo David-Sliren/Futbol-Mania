@@ -8,6 +8,7 @@ import { useCompetitionTable } from "../hooks/useCompetitionQuery";
 import { useCompetitionMatches } from "../hooks/useMatchesQuery";
 import { Link } from "react-router";
 import Button from "../components/Plantillas/Button";
+import NotLive from "../components/Plantillas/NotLive";
 
 function Clasificacion() {
   const { competitionsMatches } = useCompetitionMatches();
@@ -53,21 +54,26 @@ function Clasificacion() {
           </ElementoLP>
 
           <ElementoLP nombre="Eventos">
-            {competitionsMatches.data?.map((item) => {
-              return (
-                <Events
-                  key={item.competition.id}
-                  img1={item.localTeam.crest}
-                  markerHome={item.score.home}
-                  markerVisit={item.score.away}
-                  img2={item.visitTeam.crest}
-                  alt1={item.localTeam.name}
-                  alt2={item.visitTeam.name}
-                  status={item.statusGame}
-                  date={item.startGame}
-                />
-              );
-            })}
+            {!competitionsMatches?.data ||
+            competitionsMatches?.data.length === 0 ? (
+              <NotLive />
+            ) : (
+              competitionsMatches.data?.map((item) => {
+                return (
+                  <Events
+                    key={item.competition.id}
+                    img1={item.localTeam.crest}
+                    markerHome={item.score.home}
+                    markerVisit={item.score.away}
+                    img2={item.visitTeam.crest}
+                    alt1={item.localTeam.name}
+                    alt2={item.visitTeam.name}
+                    status={item.statusGame}
+                    date={item.startGame}
+                  />
+                );
+              })
+            )}
           </ElementoLP>
         </ElementoP>
       </div>
