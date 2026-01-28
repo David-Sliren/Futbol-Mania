@@ -1,8 +1,18 @@
-import React from "motion/react";
+import { motion } from "motion/react";
 
 function Table({ children }) {
   return (
-    <table className=" table-base w-full shadow-md rounded-xl overflow-hidden">
+    <motion.table
+      initial={{
+        opacity: 0,
+        y: 100,
+      }}
+      animate={{
+        opacity: children ? 1 : 0,
+        y: children ? 0 : 100,
+      }}
+      className="table-base w-full shadow-md rounded-xl overflow-hidden"
+    >
       <thead>
         <tr>
           <th>Po</th>
@@ -18,7 +28,7 @@ function Table({ children }) {
         </tr>
       </thead>
       <tbody>{children}</tbody>
-    </table>
+    </motion.table>
   );
 }
 
