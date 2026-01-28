@@ -26,23 +26,6 @@ function Clasificacion() {
           </Link>
         </header>
         <ElementoP>
-          <ElementoLP nombre="Eventos en vivo">
-            {competitionsMatches.data?.map((item) => {
-              return (
-                <Events
-                  key={item.competition.id}
-                  img1={item.localTeam.crest}
-                  markerHome={item.score.home}
-                  markerVisit={item.score.away}
-                  img2={item.visitTeam.crest}
-                  alt1={item.localTeam.name}
-                  alt2={item.visitTeam.name}
-                  status={item.statusGame}
-                  date={item.startGame}
-                />
-              );
-            })}
-          </ElementoLP>
           <ElementoLP
             nombre="Tabla de clasificacion"
             classNames="backdrop-blur-xl h-120 overflow-hidden"
@@ -67,6 +50,24 @@ function Clasificacion() {
                 })}
               </Table>
             </div>
+          </ElementoLP>
+
+          <ElementoLP nombre="Eventos">
+            {competitionsMatches.data?.map((item) => {
+              return (
+                <Events
+                  key={item.competition.id}
+                  img1={item.localTeam.crest}
+                  markerHome={item.score.home}
+                  markerVisit={item.score.away}
+                  img2={item.visitTeam.crest}
+                  alt1={item.localTeam.name}
+                  alt2={item.visitTeam.name}
+                  status={item.statusGame}
+                  date={item.startGame}
+                />
+              );
+            })}
           </ElementoLP>
         </ElementoP>
       </div>
