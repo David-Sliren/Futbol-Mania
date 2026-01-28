@@ -2,7 +2,7 @@ import React from "react";
 
 function Table({ children }) {
   return (
-    <table className=" table-base w-full shadow-md">
+    <table className=" table-base w-full shadow-md rounded-xl overflow-hidden">
       <thead>
         <tr>
           <th>Po</th>

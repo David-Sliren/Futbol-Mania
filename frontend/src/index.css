@@ -14,7 +14,7 @@ body {
 }
 
 .table-base th {
-  @apply text-lg font-bold p-2 bg-green-600 backdrop-blur-xl text-white;
+  @apply text-lg font-bold p-2 bg-green-500 backdrop-blur-xl text-black;
 }
 
 .table-base td {
