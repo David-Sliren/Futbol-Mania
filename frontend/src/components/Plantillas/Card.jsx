@@ -16,6 +16,10 @@ function Card({ id = "", name = "liga", logo = "img", isActive = false }) {
           opacity: 1,
           scale: 1,
         }}
+        whileTap={{
+          scale: 0.9,
+          rotate: 4,
+        }}
         transition={{
           type: "spring",
           stiffness: 400,

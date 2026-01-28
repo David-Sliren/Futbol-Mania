@@ -1,3 +1,5 @@
+import { motion } from "motion/react";
+
 import { getDateUTC } from "../../utils/Date";
 import Eimg from "./Eimg";
 
@@ -11,7 +13,26 @@ function Events({
   date = "",
 }) {
   return (
-    <article className=" relative bg-gradient-to-bl from-zinc-600 to-green-600 p-6 sm:p-10 rounded-xl w-full text-white flex items-center justify-center gap-6 overflow-hidden">
+    <motion.article
+      initial={{
+        opacity: 0,
+        scale: 0,
+      }}
+      animate={{
+        opacity: 1,
+        scale: 1,
+      }}
+      whileTap={{
+        scale: 0.9,
+        rotate: 4,
+      }}
+      transition={{
+        type: "spring",
+        stiffness: 400,
+        damping: 15,
+      }}
+      className=" relative bg-gradient-to-bl from-zinc-600 to-green-600 p-6 sm:p-10 rounded-xl w-full text-white flex items-center justify-center gap-6 overflow-hidden"
+    >
       <div className="absolute bottom-0 left-0 w-full h-8 bg-zinc-400 xl:">
         <span className="flex gap-4 justify-center items-center text-lg text-black font-bold">
           <p>{getDateUTC(date)}</p>
@@ -30,7 +51,7 @@ function Events({
         </span>
       </div>
       <Eimg img={img2} alt={alt2} />
-    </article>
+    </motion.article>
   );
 }
 

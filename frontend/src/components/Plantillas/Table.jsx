@@ -1,4 +1,4 @@
-import React from "react";
+import React from "motion/react";
 
 function Table({ children }) {
   return (
