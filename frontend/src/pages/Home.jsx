@@ -5,7 +5,7 @@ import { useCompetitionQuery } from "../hooks/useCompetitionQuery";
 import Card from "../components/Plantillas/Card";
 import ElementoLP from "../components/Plantillas/ElementoLp";
 import ElementoP from "../components/Plantillas/ElementoP";
-import SkeletonCard from "../components/loader/SkeletonCard";
+import SkeletonCard from "../components/skeleton/SkeletonCard";
 
 function Home() {
   const { typeLeague, typeCup, priorityBigfive, prioritySudamerican } =
