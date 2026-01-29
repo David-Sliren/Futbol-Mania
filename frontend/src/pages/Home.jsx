@@ -6,6 +6,7 @@ import Card from "../components/Plantillas/Card";
 import ElementoLP from "../components/Plantillas/ElementoLp";
 import ElementoP from "../components/Plantillas/ElementoP";
 import SkeletonCard from "../components/skeleton/SkeletonCard";
+import ButtonLive from "../components/Plantillas/ButtonLive";
 
 function Home() {
   const { typeLeague, typeCup, priorityBigfive, prioritySudamerican } =
@@ -17,6 +18,7 @@ function Home() {
       <div id="stars3"></div>
       <div></div>
       <ElementoP title="FUTBOL MANIA">
+        <ButtonLive />
         <ElementoLP nombre="Cinco Grandes">
           {priorityBigfive.isFetching
             ? [...Array(5)].map((_, i) => <SkeletonCard key={i} />)
