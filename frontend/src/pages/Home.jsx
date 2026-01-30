@@ -1,3 +1,5 @@
+import { useRef } from "react";
+
 import { useCompetitionQuery } from "../hooks/useCompetitionQuery";
 
 import Card from "../components/Plantillas/Card";
@@ -9,14 +11,15 @@ import ModalEvents from "../components/Plantillas/ModalEvents";
 function Home() {
   const { typeLeague, typeCup, priorityBigfive, prioritySudamerican } =
     useCompetitionQuery();
+  const container = useRef();
   return (
-    <div className="container min-w-full min-h-dvh">
+    <div ref={container} className="container min-w-full min-h-dvh">
       <div id="stars"></div>
       <div id="stars2"></div>
       <div id="stars3"></div>
       <div></div>
       <ElementoP title="FUTBOL MANIA">
-        <ModalEvents />
+        <ModalEvents container={container} />
         <ElementoLP nombre="Cinco Grandes">
           {priorityBigfive.isFetching
             ? [...Array(5)].map((_, i) => <SkeletonCard key={i} />)

@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import { motion } from "motion/react";
 import { useMatches } from "../../hooks/useMatchesQuery";
 
-function ModalEvents() {
+function ModalEvents({ container }) {
   const { competitionsMatches } = useMatches();
   const [isActive, setIsActive] = useState(false);
 
@@ -9,9 +10,13 @@ function ModalEvents() {
     setIsActive(!isActive);
   }
   return (
-    <div className="relative w-80 pt-2 ml-2">
+    <motion.div
+      drag
+      dragConstraints={container}
+      className="relative w-80 pt-2 ml-2 cursor-grab active:cursor-grabbing z-50"
+    >
       <button
-        className="relative group w-12 hover:w-44 h-12 backdrop-blur-2xl  rounded text-neutral-50 duration-700 before:duration-700 before:hover:500 hover:bg-zinc-500 font-bold flex justify-start gap-2 items-center p-2 pr-6 cursor-pointer z-50"
+        className="relative group w-12 h-12 rounded text-neutral-50 font-bold flex justify-start gap-2 items-center p-2 pr-6 cursor-pointer z-50 hover:w-44 before:duration-400"
         onClick={handleActive}
       >
         <svg
@@ -37,7 +42,7 @@ function ModalEvents() {
           ))}
         </div>
       )}
-    </div>
+    </motion.div>
   );
 }
 
