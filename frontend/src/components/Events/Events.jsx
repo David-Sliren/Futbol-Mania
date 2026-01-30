@@ -11,6 +11,7 @@ function Events({
   markerHome = "",
   markerVisit = "",
   date = "",
+  status = "",
 }) {
   return (
     <motion.article
@@ -33,10 +34,22 @@ function Events({
       }}
       className=" relative bg-gradient-to-bl from-zinc-600 to-green-600 p-6 sm:p-10 rounded-xl w-full text-white flex items-center justify-center gap-6 overflow-hidden"
     >
-      <div className="absolute bottom-0 left-0 w-full h-8 bg-zinc-400 xl:">
-        <span className="flex gap-4 justify-center items-center text-lg text-black font-bold">
-          <p>{getDateUTC(date)}</p>
-        </span>
+      <div className="absolute bottom-0 left-0 w-full h-8 xl:">
+        {(status == "TIMED" || status == "INPLAY") && (
+          <p
+            className={`text-lg text-center text-black/90 font-bold ${status == "TIMED" ? "bg-white/50" : "bg-green-500"}`}
+          >
+            {status == "TIMED" ? getDateUTC(date) : "En juego"}
+          </p>
+        )}
+
+        {(status == "FINISHED" || status == "CANCELED") && (
+          <p
+            className={`text-lg text-center text-black/90 font-bold ${status == "FINISHED" ? "bg-red-600" : "bg-orange-500"}`}
+          >
+            {status == "CANCELED" ? "Cancelado" : "Terminado"}
+          </p>
+        )}
       </div>
       <Eimg img={img1} alt={alt1} />
       <div className="flex gap-4">
