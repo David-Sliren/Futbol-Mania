@@ -11,10 +11,17 @@ import Button from "../components/Plantillas/Button";
 import NotLive from "../components/Plantillas/NotLive";
 import SkeletonTable from "../components/skeleton/SkeletonTable";
 import SkeletonEvents from "../components/skeleton/SkeletonEvents";
+import { useState } from "react";
 
 function Clasificacion() {
   const { competitionsMatches } = useCompetitionMatches();
   const { competitionTable } = useCompetitionTable();
+
+  const [isMore, setIsMore] = useState(false);
+
+  function haddleMore() {
+    setIsMore(!isMore);
+  }
 
   return (
     <>
@@ -23,7 +30,7 @@ function Clasificacion() {
         <div id="stars2"></div>
         <div id="stars3"></div>
         <div></div>
-        <header className="bg-white/10 w-full h-fit p-2 backdrop-blur-md sticky top-0 z-999">
+        <header className=" w-full h-fit p-2 sticky top-0 z-999">
           <Link to="/">
             <Button />
           </Link>
@@ -31,7 +38,10 @@ function Clasificacion() {
         <ElementoP>
           <ElementoLP
             nombre="Tabla de clasificacion"
-            classNames="backdrop-blur-xl h-120 overflow-hidden"
+            classNames={`backdrop-blur-xl  overflow-hidden ${isMore ? "h-fit" : "h-120"}`}
+            learnMore={true}
+            on={haddleMore}
+            isMore={isMore}
           >
             <div className="col-span-9">
               {competitionTable.isFetching ? (
