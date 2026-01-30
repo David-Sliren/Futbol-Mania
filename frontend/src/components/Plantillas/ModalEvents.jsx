@@ -5,8 +5,6 @@ function ModalEvents() {
   const { competitionsMatches } = useMatches();
   const [isActive, setIsActive] = useState(false);
 
-  console.log(competitionsMatches);
-
   function handleActive() {
     setIsActive(!isActive);
   }
