@@ -4,7 +4,7 @@
   "scripts": {
     "install-all": "pnpm install && pnpm install --prefix frontend && pnpm install --prefix backend",
     "dev": "concurrently \"pnpm run dev --prefix frontend\" \"pnpm run dev --prefix backend\"",
-    "build-front": "pnpm run build --prefix frontend"
+    "deploy-front": "cd frontend && pnpm run deploy"
   },
   "devDependencies": {
     "concurrently": "9.2.1"
