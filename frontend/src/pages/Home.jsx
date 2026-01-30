@@ -1,9 +1,7 @@
-// import { useBotones } from "../context/BotonData";
-
 import { useCompetitionQuery } from "../hooks/useCompetitionQuery";
 
 import Card from "../components/Plantillas/Card";
-import ElementoLP from "../components/Plantillas/ElementoLp";
+import ElementoLP from "../components/Plantillas/ElementoLP";
 import ElementoP from "../components/Plantillas/ElementoP";
 import SkeletonCard from "../components/skeleton/SkeletonCard";
 import ModalEvents from "../components/Plantillas/ModalEvents";
