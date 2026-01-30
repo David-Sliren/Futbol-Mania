@@ -7,12 +7,16 @@ const time = 2 * 60 * 1000;
 
 export function useMatches() {
   const eventsMathes = useQuery({
-    queryKey: ["Clasificacion", { eventsMatches: "All-Events-Today" }],
+    queryKey: ["Home", { eventsMatches: "All-Events-Today" }],
     queryFn: () => matches(),
     staleTime: time,
   });
 
-  return { eventsMathes };
+  const competitionsMatches = [
+    ...new Set(eventsMathes.data?.map((item) => item.competition.name)),
+  ];
+
+  return { eventsMathes, competitionsMatches };
 }
 
 export function useCompetitionMatches() {
