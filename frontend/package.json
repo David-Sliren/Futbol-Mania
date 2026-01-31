@@ -12,6 +12,8 @@
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "@fontsource-variable/inter": "^5.2.8",
+    "@fontsource/rajdhani": "^5.2.7",
     "@tailwindcss/vite": "^4.1.13",
     "@tanstack/react-query": "^5.90.17",
     "@tanstack/react-query-devtools": "^5.91.2",

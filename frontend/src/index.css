@@ -1,7 +1,20 @@
 @import "tailwindcss";
-
+@import "@fontsource/rajdhani/300.css";
+@import "@fontsource/rajdhani/400.css";
+@import "@fontsource/rajdhani/500.css";
+@import "@fontsource/rajdhani/600.css";
+@import "@fontsource/rajdhani/700.css";
+@import "@fontsource-variable/inter";
+@theme {
+  --font-rajdhani: "Rajdhani", sans-serif;
+  --font-inter: "Inter Variable", sans-serif;
+}
 body {
-  background-color: #444;
+  background-color: #333;
+  @apply font-rajdhani font-light;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .txt {
@@ -38,11 +51,11 @@ body {
 }
 
 .table-base th {
-  @apply text-lg font-bold p-2 bg-green-500 backdrop-blur-xl text-black;
+  @apply text-lg font-inter font-bold p-2 bg-green-500 backdrop-blur-xl text-black;
 }
 
 .table-base td {
-  @apply text-lg text-center font-light text-white p-4 backdrop-blur-xl bg-white/10;
+  @apply text-lg text-center font-inter font-light text-white p-4 backdrop-blur-xl bg-white/10;
 }
 
 @keyframes rebote {
