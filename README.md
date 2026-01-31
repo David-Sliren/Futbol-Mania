@@ -1,4 +1,4 @@
-# ⚽ Proyecto Fútbol Mania
+# ⚽ Fútbol Mania
 
 Este proyecto es una aplicación web completa para visualizar información de fútbol, incluyendo partidos en vivo, clasificaciones y competiciones. Está construido con una arquitectura moderna separando el frontend y el backend.
 
